@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Generic Calculator</title>
+		<style>
+		.calculator_body{
+			height: 60vw;
+			width: 45vw;
+			margin: 5vw;
+			border: 5px solid black
+		}
+		.display{
+			width: 40vw;
+			height: 3vw;
+			text-align: right;
+			margin-top: 5vw;
+			margin: 30px;
+			border: 2px solid black;
+		}
+		.button{
+			height: 50px;
+			width: 50px;
+			border: 2px solid black;
+			text-align: center;
+			margin: 40px;
+		}
+		.button_container{
+			display: flex;
+			flex-flow: wrap;
+			justify-content: center;
+			width: 40vw;
+			height: 30vw;
+			margin: 30px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="calculator_body">
+			<div class="display">
+				<h2 id="display_text"></h2>
+			</div>
+			<div class="button_container">
+				<div class="button">
+					<h2></h2>
+				</div>
+				<div class="button">
+					<h2>CE</h2>
+				</div>
+				<div class="button">
+					<h2>C</h2>
+				</div>
+				<div class="button">
+					<h2>/</h2>
+				</div>
+				<div class="button">
+					<h2>7</h2>
+				</div>
+				<div class="button">
+					<h2>8</h2>
+				</div>
+				<div class="button">
+					<h2>9</h2>
+				</div>
+				<div class="button">
+					<h2>*</h2>
+				</div>
+				<div class="button">
+					<h2>4</h2>
+				</div>
+				<div class="button">
+					<h2>5</h2>
+				</div>
+				<div class="button">
+					<h2>6</h2>
+				</div>
+				<div class="button">
+					<h2>-</h2>
+				</div>
+				<div class="button">
+					<h2>1</h2>
+				</div>
+				<div class="button">
+					<h2>2</h2>
+				</div>
+				<div class="button">
+					<h2>3</h2>
+				</div>
+				<div class="button">
+					<h2>+</h2>
+				</div>
+				<div class="button">
+					<h2>0</h2>
+				</div>
+				<div class="button">
+					<h2>.</h2>
+				</div>
+				<div class="button">
+					<h2></h2>
+				</div>
+				<div class="button">
+					<h2>=</h2>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			document.addEventListener('click', function(event){
+				event.preventDefault();
+				if (event.target.innerHTML != '=') {
+					document.getElementById('display_text').innerHTML+=event.target.innerHTML;
+				}
+				else {
+					calculate()
+				}
+			})
+
+			function calculate(){
+				let problem = document.getElementById('display_text').innerHTML.split('');
+				let calculation = [];
+				for (var i = 0; i < problem.length; i++) {
+					if (problem[i] != "+","-","*","/") {
+						calculation.push(Number(problem[i]));
+					}
+					else {
+						calculation.push(problem[i]);
+					}
+				}
+				console.log(calculation);
+			}
+		</script>
+	</body>
+</html>
